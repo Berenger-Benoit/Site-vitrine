@@ -5,17 +5,61 @@
 {% block body %}
 
 
-   <div class="presentation">
-       <h1>Bienvenue à la ferme !</h1>
-       <p>Produits locaux et frais toute l'année</p>
-   </div>
-   <section>
-       <div class="row">
-           <div class="col-12">
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, fugit soluta? Totam quisquam itaque suscipit ea veniam quia error, laboriosam architecto voluptates corporis dolorem, molestiae necessitatibus repellendus iure laborum illum?</p>
-           </div>
-       </div>
-   </section>
-        
+<div class="presentation-title">
+    <h1>Bienvenue à la ferme !</h1>
+    <p>Produits locaux et frais toute l'année</p>
+</div>
+<section class="presentation-section">
+    <div class="row">
+        <div class="col-12">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, fugit soluta? Totam quisquam itaque
+                suscipit ea veniam quia error, laboriosam architecto voluptates corporis dolorem, molestiae
+                necessitatibus repellendus iure laborum illum?</p>
+        </div>
+    </div>
+
+</section>
+<section class="card-product">
+    <div id="card-section" class="row">
+        <div class="col-md-3 mr-2">
+            <div class="card">
+                <img class="card-img-top" src="{{asset('/images/legumes.jpeg')}}" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Some quick example text to build on the Lorem, ipsum dolor. and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mr-2">
+            <div class="card">
+                <img class="card-img-top" src="{{asset('/images/fruits.jpeg')}}" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Some quick example text to build on the Lorem, ipsum dolor. and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mr-2">
+            <div class="card">
+                <img class="card-img-top" src="{{asset('/images/yahourt.jpeg')}}" alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 {% endblock %}

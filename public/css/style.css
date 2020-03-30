@@ -42,7 +42,22 @@ body {
     color:#DAB25E;
 
 }
-.presentation {
+.presentation-title {
     margin-top: 10px;
+    text-align: center;
+}
+#card-section{
+    display: flex;
+    justify-content: center;
+}
+
+
+.card{
+    min-height: 420px;
+}
+
+.footer {
+    background-color: #142C59;
+    color: #fff;
     text-align: center;
 }
