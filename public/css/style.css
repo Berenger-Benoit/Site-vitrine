@@ -61,3 +61,9 @@ body {
     color: #fff;
     text-align: center;
 }
+.contacts>a {
+    font-weight: bold;
+
+    margin-right: 10px;
+    color: #fff;
+}
