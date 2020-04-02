@@ -1,8 +1,9 @@
 body {
     font-family: 'Poppins', sans-serif;
-
+    margin: 0;
 }
-#header{
+
+#header {
     position: relative;
     width: 100%;
     margin-top: 0;
@@ -10,60 +11,96 @@ body {
     padding-bottom: 15px;
 }
 
-.nav-link, .navbar-brand{
+.nav-link, .navbar-brand {
     font-weight: bold;
     color: white;
 }
-.nav-link:hover, .navbar-brand:hover{
-    color:#DAB25E;
+
+.nav-link:hover, .navbar-brand:hover {
+    color: #DAB25E;
 }
+
 .navbar-nav {
     align-items: baseline;
 }
-.img-nav{
+
+.img-nav {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
 }
+
 .dropdown {
     margin-right: 10px;
 }
+
 .dropdown-menu {
     margin-top: 7px;
     background-color: #142C59;
     border: none;
 }
+
 .dropdown-item {
     color: white;
-
 }
-.dropdown-item:hover{
+
+.dropdown-item:hover {
     background-color: #142C59;
-    color:#DAB25E;
-
+    color: #DAB25E;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .presentation-title {
     margin-top: 10px;
     text-align: center;
 }
-#card-section{
+
+#card-section {
     display: flex;
     justify-content: center;
 }
 
-
-.card{
+.card {
     min-height: 420px;
 }
 
 .footer {
+    height: 100px;
+    position: absolute;
+    width: 100%;
     background-color: #142C59;
     color: #fff;
     text-align: center;
 }
+
 .contacts>a {
     font-weight: bold;
-
     margin-right: 10px;
     color: #fff;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.9em;
+}
+
+.form-card {
+    border: 0.5px solid grey;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
 }

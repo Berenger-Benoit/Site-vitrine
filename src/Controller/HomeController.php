@@ -19,10 +19,11 @@ class HomeController extends AbstractController
         ]);
     }
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/acces-horaires", name="acces-horaires")
      */
-    public function contact()
+    public function acces()
     {
-        return $this->render('home/contact.html.twig');
+        return $this->render('home/horaires.html.twig');
     }
+ 
 }
