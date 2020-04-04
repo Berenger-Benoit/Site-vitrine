@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +56,11 @@ class Product
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
      */
     private $category;
+    
+    public function __construct()
+    {
+        $this->created_At = new \DateTime();
+    }
 
     public function getId(): ?int
     {

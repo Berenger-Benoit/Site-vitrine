@@ -1,12 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{products.category.name}}{% endblock %}
+{% block title %}{{category.name}}{% endblock %}
 
 {% block body %}
 <div class="row">
     <div class="col">
-        
-        {{products.name}}
+
+        <div>
+
+            <ul>
+                {% for product in products %}
+                <li>
+                    {{product.name}}
+                </li>
+                {% else %}
+              
+                <div>
+                    <p>
+                        il n'y a pas de produits pour le moment ou les produits sont indisponible.
+                    </p>
+                </div>
+                {% endfor %}
+
+            </ul>
+        </div>
+
     </div>
 </div>
 

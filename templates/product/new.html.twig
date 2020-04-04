@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{{form_start(form)}}
+{{ form_widget(form) }}
+<div class="button">
+    <input class="btn btn-primary" type="submit" value="Ajouter">
+</div>
+{{form_end(form)}}
+
+
+{% endblock %}
