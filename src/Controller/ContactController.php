@@ -21,14 +21,13 @@ class ContactController extends AbstractController
           
             $this->addFlash(
                 'success',
-                'Votre email a bien été envoyé !'
+                'Votre message a bien été envoyé !'
             );
            
             return $this->redirectToRoute('contact',[
                 'form' => $form->createView(),
             ]);
 
-          
         }
         
    
