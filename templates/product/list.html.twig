@@ -12,6 +12,12 @@
                 {% for product in products %}
                 <li>
                     {{product.name}}
+                    {{product.price|number_format(2) }}€
+                    {{product.origin}}
+                    {{product.weight}}
+
+                    {{product.description}}
+
                 </li>
                 {% else %}
               

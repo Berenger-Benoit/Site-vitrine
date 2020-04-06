@@ -33,7 +33,7 @@ class Product
     private $origin;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="decimal", scale=2, nullable=true)
      */
     private $price;
 
