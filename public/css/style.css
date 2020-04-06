@@ -4,6 +4,30 @@ body {
     background-image: url();
 }
 
+
+/* general */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #142C59;
+    border-color: #142C59;
+}
+
+.btn:hover {
+    border-color: orange;
+    background-color: orange;
+}
+
+/* nav  */
 #header {
     position: relative;
     width: 100%;
@@ -50,10 +74,7 @@ body {
     color: #DAB25E;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-}
+/* homepage */
 
 .presentation-title {
     margin-top: 10px;
@@ -63,19 +84,22 @@ body {
 #card-section {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
-.card {
-    min-height: 420px;
-}
+/* footer */
 
 .footer {
-    height: 100px;
+    height: auto;
     position: absolute;
     width: 100%;
     background-color: #142C59;
     color: #fff;
     text-align: center;
+}
+.fa {
+color: white;
+padding: 10px;
 }
 
 .contacts>a {
@@ -89,6 +113,8 @@ body {
     justify-content: center;
 }
 
+
+/* form */
 #form {
     display: flex;
     justify-content: center;
@@ -101,7 +127,3 @@ body {
     padding: 2rem;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 10px;
-}

@@ -1,63 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produits de la ferme{% endblock %}
+{% block title %}Produits de la ferme
+{% endblock %}
 
 {% block body %}
 
 
-<div class="presentation-title">
-    <h1>Bienvenue à la ferme !</h1>
-    <p>Produits locaux et frais toute l'année</p>
-</div>
-<section class="presentation-section">
+	<div class="presentation-title">
+		<h1>Bienvenue à la ferme !</h1>
+		<p>Produits locaux et frais toute l'année</p>
+	</div>
+	<section class="presentation-section">
+		<div class="row">
+			<div class="col-12">
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, fugit soluta? Totam quisquam itaque
+					                suscipit ea veniam quia error, laboriosam architecto voluptates corporis dolorem, molestiae
+					                necessitatibus repellendus iure laborum illum?</p>
+			</div>
+		</div>
+
+	</section>
+	<section class="card-product">
+
+		<div id="card-section" class="row">
+			{% for category in categories %}
+				<div class="col-md-3 mr-2">
+					<div class="card">
+						{% if category.id == 1 %}
+							<img class="card-img-top" src="{{asset('/images/legumes.jpeg')}}" alt="Card image cap">
+						{% elseif  category.id == 2 %}
+							<img class="card-img-top" src="{{asset('/images/fruits.jpeg')}}" alt="Card image cap">
+						{% elseif category.id == 3 %}
+							<img class="card-img-top" src="{{asset('/images/yaourt.jpeg')}}" alt="Card image cap">
+						{% endif %}
+						<div class="card-body text-center">
+							<h5 class="card-title">{{category.name}}</h5>
+
+							<a href="{{path('product', {'id': category.id})}}" class="btn btn-primary">Découvrez les produits</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+
+	</section>
+<section class="news">
     <div class="row">
-        <div class="col-12">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, fugit soluta? Totam quisquam itaque
-                suscipit ea veniam quia error, laboriosam architecto voluptates corporis dolorem, molestiae
-                necessitatibus repellendus iure laborum illum?</p>
+        <div class="col">
+            <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo sit sunt, est consectetur architecto saepe, quaerat aspernatur consequatur voluptatem deleniti inventore nam id delectus accusantium corrupti. Dolore sit placeat autem!
+                Libero maxime numquam omnis tempore veritatis quo tempora placeat, vero repellat molestias sapiente fugit accusantium pariatur labore sed fugiat ex neque quis? Dolorem sed velit eos deserunt odit iste nesciunt.
+                Repellendus veritatis, tempore perferendis incidunt ipsa placeat obcaecati quae quam ea omnis et, recusandae autem? Nulla provident dolorum, placeat exercitationem quasi aut eligendi vel voluptates, doloribus repellat magni, delectus quam?
+                Ducimus laudantium hic iste! Dolorem recusandae incidunt nam temporibus quia. Quibusdam cum impedit, velit quidem itaque porro saepe, alias illo inventore facilis molestias magnam consequuntur iusto beatae in id rerum!
+                Cupiditate earum pariatur nesciunt. Sunt magni odit nihil neque architecto ut ratione quisquam aperiam accusantium debitis perspiciatis deserunt ea nesciunt minus quod exercitationem modi, beatae enim laudantium! Quia, fugit amet.
+                </p>
+            </div>
         </div>
     </div>
-
 </section>
-<section class="card-product">
-   
-    <div id="card-section" class="row">
-      
-        <div class="col-md-3 mr-2">
-            <div class="card">
-                <img class="card-img-top" src="{{asset('/images/legumes.jpeg')}}" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Légumes</h5>
-                 
-                    <a href="{{path('product', {'id': '1'})}}" class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mr-2">
-            <div class="card">
-                <img class="card-img-top" src="{{asset('/images/fruits.jpeg')}}" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Fruits</h5>
-                 
-                    <a href="{{path('product', {'id': '2'})}}" class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mr-2">
-            <div class="card">
-                <img class="card-img-top" src="{{asset('/images/yaourt.jpeg')}}" alt="Card image cap">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Yaourts</h5>
-                 
-                    <a href="{{path('product', {'id': '3'})}}" class="btn btn-primary">En savoir plus</a>
-                </div>
-            </div>
-        </div>
-     
-    </div>
-    
-</section>
-
-
 
 {% endblock %}
