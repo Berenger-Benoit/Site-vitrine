@@ -3,32 +3,27 @@
 {% block title %}{{category.name}}{% endblock %}
 
 {% block body %}
+<h2>Légumes</h2>
 <div class="row">
-    <div class="col">
+    <div class="col-lg-12 col-md-12">
 
         <div>
-
-            <ul>
                 {% for product in products %}
-                <li>
-                    {{product.name}}
-                    {{product.price|number_format(2) }}€
-                    {{product.origin}}
-                    {{product.weight}}
-
-                    {{product.description}}
-
-                </li>
+                <img src="" alt="">{{product.image}}
+                <div class="products">
+               
+                    <a href="{{path('product-show', {'product_id': product.id ,'category_id': category.id})}}">{{product.name}}</a>
+                </div>
                 {% else %}
-              
-                <div>
+                <div class="products-empty">
                     <p>
                         il n'y a pas de produits pour le moment ou les produits sont indisponible.
                     </p>
+                    <a href="{{path('home')}}" class="btn btn-primary">Retour</a>
                 </div>
                 {% endfor %}
 
-            </ul>
+           
         </div>
 
     </div>

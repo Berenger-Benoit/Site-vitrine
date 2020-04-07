@@ -6,23 +6,37 @@ use App\Entity\Product;
 use App\Entity\Category;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
-use App\Repository\CategoryRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{id}", name="product", requirements={"id": "\d+"})
+     * @Route("/product/{id}", name="products", requirements={"id": "\d+"})
      */
     public function list(ProductRepository $pr, Category $category)
     {
         $products = $pr->findProducts($category);
-        //  dd($products);
         return $this->render('product/list.html.twig', [
             'products' => $products,
             'category' => $category,
+        ]);
+    }
+
+     /**
+     * @Route("/product/category-{category_id}/detail/product-{product_id}", name="product-show", requirements={"id": "\d+"})
+     * @ParamConverter("category", options={"id" = "category_id"})
+     * @ParamConverter("product", options={"id" = "product_id"})
+     * 
+     */
+    public function show(ProductRepository $pr, Product $product, Category $category)
+    {
+        $product = $pr->find($product);
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
+            'category'=> $category
         ]);
     }
 

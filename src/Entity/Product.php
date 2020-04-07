@@ -33,16 +33,6 @@ class Product
     private $origin;
 
     /**
-     * @ORM\Column(type="decimal", scale=2, nullable=true)
-     */
-    private $price;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $weight;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_At;
@@ -56,6 +46,21 @@ class Product
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="decimal", precision=6, scale=2, nullable=true)
+     */
+    private $weight;
     
     public function __construct()
     {
@@ -103,29 +108,6 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
-    {
-        return $this->price;
-    }
-
-    public function setPrice(?int $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    public function getWeight(): ?int
-    {
-        return $this->weight;
-    }
-
-    public function setWeight(?int $weight): self
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -159,6 +141,42 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?string $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getWeight(): ?string
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?string $weight): self
+    {
+        $this->weight = $weight;
 
         return $this;
     }

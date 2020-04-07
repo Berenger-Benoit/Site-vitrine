@@ -1,7 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background-image: url();
 }
 
 
@@ -125,5 +124,25 @@ padding: 10px;
     border: 0.5px solid grey;
     border-radius: 10px;
     padding: 2rem;
+}
+
+.products{
+    display: flex;
+    
+}
+
+.products-empty {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-back {
+    text-align: center;
+    margin-bottom: 20px;
 }
 

@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h2>{{category.name}}</h2>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+
+        <div class="product-content">
+            <img src="" alt="">{{product.image}}
+            <div class="title-product">
+               <h3>{{product.name}}</h3>
+            </div>
+            <div class="product-description">
+                <strong>Description:</strong>
+                <p>
+                    {{product.description}}
+                </p> 
+            </div>
+            <div class="product-origin">
+                <strong>Origine:</strong>
+                <p>
+                    {{product.origin}}
+                </p> 
+            </div>
+            <div class="product-weight">
+                Poids:
+                <p>
+                    {{product.weight}} kg
+                </p> 
+            </div>
+            <div class="product-price">
+                Prix:
+                <p>
+                    {{product.price}} €
+                </p> 
+            </div>
+           
+          
+
+        </div>
+        <div class="link-back">
+
+            <a href="{{path('products', {'id': category.id})}}" class="btn btn-primary">Retour aux produits</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
