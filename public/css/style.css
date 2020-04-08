@@ -140,6 +140,17 @@ padding: 10px;
     display: flex;
     flex-direction: column;
 }
+.product-title {
+    color: rgb(21, 62, 138);
+    font-weight: bold;
+}
+.image-content{
+    width: 300px;
+}
+
+.product-image {
+    max-width: 300px;
+}
 
 .link-back {
     text-align: center;
