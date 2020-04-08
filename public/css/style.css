@@ -10,10 +10,15 @@ body {
     display: flex;
     flex-direction: column;
 }
+h1 {
+    text-align: center;
+}
 
 h2 {
     text-align: center;
     margin-top: 10px;
+    font-family: 'Meie Script', cursive, sans-serif;
+    font-size: 2.5em;
 }
 
 .btn {
@@ -128,7 +133,13 @@ padding: 10px;
 
 .products{
     display: flex;
+    justify-content: center;
     
+}
+.products>a {
+    text-align: center;
+    font-size: 1.5em;
+    color: #142C59;
 }
 
 .products-empty {

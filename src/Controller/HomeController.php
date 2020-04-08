@@ -18,6 +18,8 @@ class HomeController extends AbstractController
             'categories' => $categories
         ]);
     }
+
+  
     /**
      * @Route("/acces-horaires", name="acces-horaires")
      */

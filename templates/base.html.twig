@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Meie+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   {% block stylesheets %}{% endblock %}
 </head>
@@ -43,7 +44,7 @@
             Nos produits laitiers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Nos produits</a>
+            <a class="dropdown-item" href="{{path('products', {'id': '3'})}}">Nos produits</a>
             {# <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a> #}
           </div>
@@ -52,11 +53,15 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <span class="img-nav"><img src="{{asset('images/basket.png')}}" alt=""></span>
-            <span>La cueillette</span>
+            <span>Fruits/Légumes</span>
 
           </a>
+         
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Horaires</a>
+            <a class="dropdown-item" href="{{path('products', {'id': '1'})}}">Légumes</a>
+            <a class="dropdown-item" href="{{path('products', {'id': '2'})}}">Fruits</a>
+          
+
             {# <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a> #}
           </div>
