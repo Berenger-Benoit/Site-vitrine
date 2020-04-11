@@ -12,6 +12,7 @@ body {
 }
 h1 {
     text-align: center;
+    margin-top: 10px;
 }
 
 h2 {
@@ -78,6 +79,10 @@ h2 {
     color: #DAB25E;
 }
 
+.nav-item {
+    list-style: none;
+}
+
 /* homepage */
 
 .presentation-title {
@@ -115,6 +120,7 @@ padding: 10px;
 .button {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 
