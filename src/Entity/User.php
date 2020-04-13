@@ -34,6 +34,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+    
+    public function __construct()
+    {
+        $this->roles = array('ROLE_USER');
+    }
 
     public function getId(): ?int
     {
