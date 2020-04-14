@@ -16,14 +16,13 @@ class ProductType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
+                'message' => "coucou"
             ])
             ->add('description')
             ->add('origin')
             ->add('price')
             ->add('weight')
-            ->add('category',ChoiceType::class, [
-                'required' => true,
-            ])
+            ->add('category')
         ;
     }
 

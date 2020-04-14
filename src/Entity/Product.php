@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -19,6 +20,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Type("string")
      */
     private $name;
 
@@ -29,6 +31,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Type("string")
      */
     private $origin;
 
@@ -49,6 +52,8 @@ class Product
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+     * @Assert\Type(
+     *     type="numeric")
      */
     private $price;
 
@@ -59,6 +64,8 @@ class Product
 
     /**
      * @ORM\Column(type="decimal", precision=6, scale=2, nullable=true)
+     * @Assert\Type(
+     *     type="numeric")
      */
     private $weight;
     
