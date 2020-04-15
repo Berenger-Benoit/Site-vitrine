@@ -16,7 +16,6 @@ class ProductType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
-                'message' => "coucou"
             ])
             ->add('description')
             ->add('origin')

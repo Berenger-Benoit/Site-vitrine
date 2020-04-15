@@ -4,21 +4,26 @@ namespace App\Controller\Admin;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
-    /**
-     * @Route("/admin", name="admin")
+    
+     /**
+     * @Route("/admin/list", name="admin_list")
      */
-    public function index()
+    public function list(ProductRepository $pr)
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+        $products = $pr->findAll();
+
+        return $this->render('admin/list.html.twig', [
+            'products' => $products,
         ]);
     }
+
 
         /**
      * @Route("/admin/new", name="admin_new")
@@ -44,6 +49,22 @@ class AdminController extends AbstractController
         return $this->render('admin/new.html.twig', [
             'form' => $form->createView(),
             ]);
+    }
+
+    /**
+     * @Route("admin/edit/{id}", name="admin_product_edit", requirements={"id": "\d+"}, methods={"GET", "POST"})
+     */
+    public function edit()
+    {
+        dd('edit');
+    }
+
+      /**
+     * @Route("admin/delete/{id}", name="admin_product_delete", requirements={"id": "\d+"}, methods={"DELETE"})
+     */
+    public function delete()
+    {
+        dd('delete');
     }
 
 }

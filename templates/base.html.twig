@@ -40,7 +40,6 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <span class="img-nav"><img src="{{asset('images/bootle.png')}}" alt=""></span>
-
             Nos produits laitiers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,14 +53,10 @@
             aria-haspopup="true" aria-expanded="false">
             <span class="img-nav"><img src="{{asset('images/basket.png')}}" alt=""></span>
             <span>Fruits/Légumes</span>
-
           </a>
-
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{path('products', {'id': '1'})}}">Légumes</a>
             <a class="dropdown-item" href="{{path('products', {'id': '2'})}}">Fruits</a>
-
-
             {# <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a> #}
           </div>
@@ -70,7 +65,6 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <span class="img-nav"><img src="{{asset('images/sign.png')}}" alt=""></span>
-
             Infos pratiques
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -78,9 +72,22 @@
             <a class="dropdown-item" href="{{path('acces-horaires')}}">Accès & horaires</a>
           </div>
         </li>
+      
       </ul>
       <div>
         <ul  class="navbar-nav mr-auto">
+          {% if is_granted('ROLE_ADMIN') == true %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{path('admin_new')}}">Ajouter produits</a>
+              <a class="dropdown-item" href="{{path('admin_list')}}">Gestion des produits</a>
+            </div>
+          </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
           </li>
