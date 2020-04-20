@@ -47,6 +47,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     * @Assert\NotBlank(message="Ce champs ne peut pas être vide")
      */
     private $category;
 

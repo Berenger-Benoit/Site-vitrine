@@ -22,11 +22,6 @@ h2 {
     font-size: 2.5em;
 }
 
-.btn {
-    background-color: #142C59;
-    border-color: #142C59;
-}
-
 .btn:hover {
     border-color: orange;
     background-color: orange;
