@@ -23,7 +23,10 @@
             <div class="product-weight">
                 <span  class="product-title">Poids:</span> 
                 <p>
-                    {{product.weight}} kg
+                    {{product.weight}}
+                    {% for type in product.type %}
+                    {{type}}
+                    {% endfor %}
                 </p> 
             </div>
             <div class="product-price">

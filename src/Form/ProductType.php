@@ -21,6 +21,13 @@ class ProductType extends AbstractType
             ->add('origin')
             ->add('price')
             ->add('weight')
+            ->add('type',ChoiceType::class,[
+                'choices'  => [
+                    'Kg' => 'kg',
+                    'Pcs' => 'pcs',
+                ],
+                'multiple' => true,
+            ])
             ->add('category')
         ;
     }
@@ -31,4 +38,6 @@ class ProductType extends AbstractType
             'data_class' => Product::class,
         ]);
     }
+
+  
 }

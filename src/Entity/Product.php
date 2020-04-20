@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Product
 {
+ 
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -69,7 +70,17 @@ class Product
      *     type="numeric")
      */
     private $weight;
-    
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $type = [];
+
+    public function __toString()
+    {
+        return $this->type;
+    }
+
     public function __construct()
     {
         $this->created_At = new \DateTime();
@@ -185,6 +196,18 @@ class Product
     public function setWeight(?string $weight): self
     {
         $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getType(): ?array
+    {
+        return $this->type;
+    }
+
+    public function setType(array $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
