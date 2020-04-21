@@ -76,6 +76,16 @@ class Product
      */
     private $type = [];
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageFile;
+
     public function __toString()
     {
         return $this->type;
@@ -208,6 +218,30 @@ class Product
     public function setType(array $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?string
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(string $imageFile): self
+    {
+        $this->imageFile = $imageFile;
 
         return $this;
     }
