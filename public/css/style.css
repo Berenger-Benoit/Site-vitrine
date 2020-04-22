@@ -157,11 +157,13 @@ padding: 10px;
     font-weight: bold;
 }
 .image-content{
-    width: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 .product-image {
-    max-width: 300px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .link-back {

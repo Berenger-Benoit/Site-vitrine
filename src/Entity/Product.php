@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @Vich\Uploadable
  */
 class Product
 {
@@ -60,11 +63,6 @@ class Product
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $image;
-
-    /**
      * @ORM\Column(type="decimal", precision=6, scale=2, nullable=true)
      * @Assert\Type(
      *     type="numeric")
@@ -77,14 +75,22 @@ class Product
     private $type = [];
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @var string|null
      */
-    private $imageName;
+    private $filename;
 
-    /**
-     * @ORM\Column(type="string", length=255)
+     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="filename")
+     * 
+     * @var File|null
      */
     private $imageFile;
+
+
 
     public function __toString()
     {
@@ -186,17 +192,6 @@ class Product
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
 
     public function getWeight(): ?string
     {
@@ -222,27 +217,54 @@ class Product
         return $this;
     }
 
-    public function getImageName(): ?string
+
+    /**
+     * Get the value of filename
+     *
+     * @return  string|null
+     */ 
+    public function getFilename()
     {
-        return $this->imageName;
+        return $this->filename;
     }
 
-    public function setImageName(?string $imageName): self
+    /**
+     * Set the value of filename
+     *
+     * @param  string|null  $filename
+     *
+     * @return  self
+     */ 
+    public function setFilename($filename)
     {
-        $this->imageName = $imageName;
+        $this->filename = $filename;
 
         return $this;
     }
 
-    public function getImageFile(): ?string
+    /**
+     * Get nOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @return  File|null
+     */ 
+    public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    public function setImageFile(string $imageFile): self
+    /**
+     * Set nOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @param  File|null  $imageFile  NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @return  self
+     */ 
+    public function setImageFile($imageFile)
     {
         $this->imageFile = $imageFile;
 
-        return $this;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updated_At = new \DateTime('now');
+        }
     }
 }
