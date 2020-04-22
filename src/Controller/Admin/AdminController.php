@@ -14,7 +14,7 @@ class AdminController extends AbstractController
 {
     
      /**
-     * @Route("/admin/list", name="admin_list")
+     * @Route("/admin/list", name="admin_list", methods={"GET"})
      */
     public function list(ProductRepository $pr)
     {
@@ -27,7 +27,7 @@ class AdminController extends AbstractController
 
 
         /**
-     * @Route("/admin/new", name="admin_new")
+     * @Route("/admin/new", name="admin_new",methods={"GET","POST"})
      */
     public function new(Request $request)
     {
@@ -44,7 +44,7 @@ class AdminController extends AbstractController
 
             $this->addFlash('success', 'Le bien a été ajouté!');
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('admin_list');
         }
 
         return $this->render('admin/new.html.twig', [

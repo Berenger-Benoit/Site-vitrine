@@ -21,7 +21,7 @@ class HomeController extends AbstractController
 
   
     /**
-     * @Route("/acces-horaires", name="acces-horaires")
+     * @Route("/acces-horaires", name="acces-horaires" ,methods={"GET"} )
      */
     public function acces()
     {

@@ -4,17 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Entity\Category;
-use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{id}", name="products", requirements={"id": "\d+"})
+     * @Route("/product/{id}", name="products", requirements={"id": "\d+"} ,methods={"GET"})
      */
     public function list(ProductRepository $pr, Category $category)
     {
@@ -26,7 +24,7 @@ class ProductController extends AbstractController
     }
 
      /**
-     * @Route("/product/category-{category_id}/detail/product-{product_id}", name="product-show", requirements={"id": "\d+"})
+     * @Route("/product/category-{category_id}/detail/product-{product_id}", name="product-show", requirements={"id": "\d+"},methods={"GET"})
      * @ParamConverter("category", options={"id" = "category_id"})
      * @ParamConverter("product", options={"id" = "product_id"})
      * 
@@ -40,30 +38,6 @@ class ProductController extends AbstractController
         ]);
     }
 
-        /**
-     * @Route("/product/new", name="new_product")
-     */
-    public function new(Request $request)
-    {
-        $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $em->persist($product);
-
-            $em->flush();
-
-            $this->addFlash('success', 'Le bien a été ajouté!');
-
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('product/new.html.twig', [
-            'form' => $form->createView(),
-            ]);
-    }
+   
 
 }
