@@ -90,12 +90,15 @@
             </div>
           </li>
           {% endif %}
+          {% if is_granted('ROLE_USER') %}
+          {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{path('app_register')}}">Créer compte</a>
           </li>
+          {% endif %}
           {% if app.user %}
           <li class="nav-item">
             <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
