@@ -2,10 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
+use App\Form\UserType;
 use App\Entity\Product;
 use App\Form\ProductType;
-use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManager;
+use App\Repository\UserRepository;
+use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -91,4 +94,29 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_list');
     }
 
+       /**
+     * @Route("/admin/profiles", name="app_profile")
+     */
+    public function profile(UserRepository $ur)
+    {
+        $user = $this->getUser();
+        $users= $ur->findAll();
+        $form = $this->createForm(UserType::class, $user);
+
+        return $this->render('security/edit_user.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user,
+            'users' => $users
+        ]);
+    }
+    
+  
+       
+    /**
+     * @Route("/admin/user/edit/{id}", name="admin_user_edit", requirements={"id": "\d+"})
+     */
+    public function adminUserEdit(User $user)
+    {
+        dd($user);
+    }
 }

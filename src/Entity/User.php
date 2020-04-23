@@ -34,6 +34,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    public function __toString()
+    {
+        return $this->roles;
+    }
     
     public function __construct()
     {
