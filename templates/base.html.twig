@@ -87,6 +87,17 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{path('admin_new')}}">Ajouter produits</a>
               <a class="dropdown-item" href="{{path('admin_list')}}">Gestion des produits</a>
+              
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Gestion des comptes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{path('admin_profiles')}}">Administration des comptes</a>
+              
             </div>
           </li>
           {% endif %}

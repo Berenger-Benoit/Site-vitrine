@@ -6,12 +6,13 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Entity\Product;
 use App\Form\ProductType;
-use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends AbstractController
 {
@@ -45,7 +46,7 @@ class AdminController extends AbstractController
 
             $em->flush();
 
-            $this->addFlash('success', 'Le bien a été ajouté!');
+            $this->addFlash('success', 'Le produit a été ajouté!');
 
             return $this->redirectToRoute('admin_list');
         }
@@ -68,7 +69,7 @@ class AdminController extends AbstractController
             $product->setUpdatedAt(new \DateTime());
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('primary', 'Le Produit a été mis à jour!');
+            $this->addFlash('primary', 'Le produit a été mis à jour!');
 
 
             return $this->redirectToRoute('admin_list');
@@ -95,7 +96,7 @@ class AdminController extends AbstractController
     }
 
        /**
-     * @Route("/admin/profiles", name="app_profile")
+     * @Route("/admin/profiles", name="admin_profiles")
      */
     public function profile(UserRepository $ur)
     {
@@ -103,7 +104,7 @@ class AdminController extends AbstractController
         $users= $ur->findAll();
         $form = $this->createForm(UserType::class, $user);
 
-        return $this->render('security/edit_user.html.twig', [
+        return $this->render('security/user.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
             'users' => $users
@@ -113,10 +114,42 @@ class AdminController extends AbstractController
   
        
     /**
-     * @Route("/admin/user/edit/{id}", name="admin_user_edit", requirements={"id": "\d+"})
+     * @Route("/admin/user/edit/{id}", name="admin_user_edit", requirements={"id": "\d+"}, methods={"GET","POST"})
      */
-    public function adminUserEdit(User $user)
+    public function adminUserEdit(Request $request, User $user,UserPasswordEncoderInterface $passwordEncoder)
     {
-        dd($user);
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_profiles');
+        }
+
+        return $this->render('security/edit_user.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+  
+
+    /**
+     * @Route("/admin/user/delete/{id}", name="admin_user_delete", methods={"DELETE"}, requirements={"id":"\d+"})
+     */
+    public function adminUserDelete(Request $request, User $user): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+
+        return $this->redirectToRoute('admin_profiles');
     }
 }

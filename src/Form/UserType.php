@@ -17,9 +17,8 @@ class UserType extends AbstractType
             ->add('email')
             ->add('roles', CollectionType::class, [
                 'entry_type' => TextType::class,
-            
-
-       
+                'allow_add' => true,
+                'allow_delete' => true,       
             ])
         ;
     }
