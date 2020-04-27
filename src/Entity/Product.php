@@ -24,7 +24,7 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Type("string")
+     * 
      */
     private $name;
 
@@ -58,14 +58,16 @@ class Product
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      * @Assert\Type(
-     *     type="numeric")
+     *     type="numeric",
+     *      message="Ce champs n'accepte que des chiffres")
      */
     private $price;
 
     /**
      * @ORM\Column(type="decimal", precision=6, scale=2, nullable=true)
      * @Assert\Type(
-     *     type="numeric")
+     *     type="numeric",
+     *  message="Ce champs n'accepte que des chiffres")
      */
     private $weight;
 
