@@ -24,7 +24,7 @@ class AdminController extends AbstractController
     {
         $products = $pr->findAll();
 
-        return $this->render('admin/list.html.twig', [
+        return $this->render('admin/product/list.html.twig', [
             'products' => $products,
         ]);
     }
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_list');
         }
 
-        return $this->render('admin/new.html.twig', [
+        return $this->render('admin/product/new.html.twig', [
             'form' => $form->createView(),
             ]);
     }
@@ -75,7 +75,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_list');
         }
 
-        return $this->render('admin/edit.html.twig', [
+        return $this->render('admin/product/edit.html.twig', [
         'product' => $product,
         'form' => $form->createView(),
         ]);

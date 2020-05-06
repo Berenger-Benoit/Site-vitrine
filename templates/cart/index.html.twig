@@ -32,7 +32,7 @@
                         <td>{{type}}</td>
                         {% endfor %}
                         </td>
-                        <td>{{item.product.price * item.quantity}} €</td>
+                        <td>{{item.product.price * item.quantity }} €</td>
                         <td>
                             <a href="{{path('cart_add', {'id': item.product.id})}}" class="btn btn-success btn-sm">
                                 <i class="fa fa-plus"></i>

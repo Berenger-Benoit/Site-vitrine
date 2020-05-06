@@ -27,5 +27,14 @@ class HomeController extends AbstractController
     {
         return $this->render('home/horaires.html.twig');
     }
+
+
+    /**
+     * @Route("/history", name="history" ,methods={"GET"} )
+     */
+    public function history()
+    {
+        return $this->render('home/history.html.twig');
+    }
  
 }
