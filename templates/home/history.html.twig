@@ -3,5 +3,40 @@
 {% block title %}Histoire{% endblock %}
 
 {% block body %}
-    
+    <body class="history">
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3 float-right mt-2" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="{{asset('/images/abeille.jpg')}}" class="card-img" alt="abeille sur des fleurs">
+                      </div>
+                      <div class="col-md-8  d-flex align-items-center">
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Respect de la nature</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, facere.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3 float-left mt-2" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="{{asset('/images/produits.jpeg')}}" class="card-img" alt="fruits et légumes">
+                      </div>
+                      <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Produits de saison</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, facere.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </body>
 {% endblock %}
