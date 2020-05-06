@@ -26,10 +26,19 @@
             <div class="product-weight">
                 <span  class="product-title">Unité:</span> 
                 <p>
+                    {% if product.weight > 1 %}
+
+                    {{product.weight}} pièces                        
+                    {% else %}
+
                     {{product.weight}}
                     {% for type in product.type %}
                     {{type}}
-                    {% endfor %}
+                    {% endfor %} 
+
+                    {% endif %}
+
+
                 </p> 
             </div>
             <div class="product-price">
@@ -38,7 +47,12 @@
                     {{product.price}} €
                 </p> 
             </div>
-           
+            <div>
+                <a href="{{path('cart_add', {id: product.id}) }}" class="btn btn-success float-left btn-sm">
+                    <i class="fa fa-shopping-cart"></i>
+                    Ajouter
+                </a>
+            </div>
           
 
         </div>

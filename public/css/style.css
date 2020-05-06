@@ -35,6 +35,11 @@ h2 {
     background-color: #142C59;
     padding-bottom: 15px;
 }
+.navbar-nav .nav-link {
+    padding-right: none;
+  
+}
+
 
 .nav-link, .navbar-brand {
     font-weight: bold;

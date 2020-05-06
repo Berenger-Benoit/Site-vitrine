@@ -37,7 +37,7 @@ class ProductType extends AbstractType
             ->add('type',ChoiceType::class,[
                 'choices'  => [
                     'Kg' => 'kg',
-                    'Piece' => 'pièce(s)',
+                    'Piece' => 'pièce',
                 ],
                 'multiple' => true,
             ])
